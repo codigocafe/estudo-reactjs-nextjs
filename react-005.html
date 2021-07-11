@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+<body>
+  
+<div id="root"></div>
+
+<script type="text/babel">
+
+class App extends React.Component {
+
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      title : this.props.title,
+      isToggleOn : true
+    };
+    this.messageAlert = this.messageAlert.bind(this)
+  }
+
+  messageAlert(){
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render()
+  {
+    return (
+      <div>
+        <h1>{this.state.title}</h1>
+        <button onClick={this.messageAlert}>
+          {this.state.isToggleOn ? 'ON' : 'OFF'}
+        </button>
+      </div>
+    );
+  }
+
+}
+
+ReactDOM.render(<App title="Título por propriedade no React" />, document.querySelector('#root'));
+
+</script>
+
+</body>
+</html>

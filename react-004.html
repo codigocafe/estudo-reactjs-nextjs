@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+</head>
+<body>
+  
+<div id="root"></div>
+
+<script type="text/babel">
+
+class Clock extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {date : new Date()}
+  }
+
+  componentDidMount(){
+    this.timerID = setInterval(()=> this.tick(), 1000);
+  }
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
+
+  tick(){
+    this.setState({
+      date : new Date()
+    });
+  }
+
+  render(){
+    return (
+      <div>
+        <h1>Hello!</h1>
+        <h2>{this.state.date.toLocaleTimeString()}</h2>
+        <p>Estou usando classe com estado local da classe.</p>
+      </div>
+    );
+  }
+  
+}
+
+function App(){
+  return (
+    <div>
+      <Clock />      
+      <Clock />      
+      <Clock />      
+    </div>
+  );
+}
+
+
+ReactDOM.render(<App />, document.querySelector('#root'));
+
+
+
+</script>
+
+</body>
+</html>

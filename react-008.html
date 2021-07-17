@@ -13,6 +13,29 @@
 </head>
 <body>
   
+<div id="mariana"></div>
+
+
+<script type="text/babel">
+
+class Formulario extends React.Component {
+  render (){
+    return (
+      <form>
+        <label>
+          Nome:
+          <input type="text" name="nome" />
+        </label>
+        <input type="submit" value="Enviar" />
+      </form>
+    )    
+  }
+} 
+
+
+ReactDOM.render(<Formulario />, document.getElementById('mariana'));
+
+</script>
 
 
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="https://unpkg.com/react@^16/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.13.0/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+</head>
+<body>
+
+  <div id="root"></div>
+
+<script type="text/babel">
+
+class Chave extends React.Component
+{
+  constructor(props)
+  {
+    super(props);
+    this.state = {
+      numbers : this.props.numbers
+    }
+  }
+ 
+  list_items()
+  {
+    const items = this.state.numbers.map((number) => {
+      return <li key={number.toString()}>{number}</li>
+    });
+    return items;
+  }
+  list_html()
+  {
+    return (
+      <ul>{this.list_items()}</ul>
+    )
+  }
+  render()
+  {
+    return (
+      <div>
+        <h1>Lista de números</h1>
+        {this.list_html()}
+      </div>
+    );
+  }
+}
+
+const numbers = [1,2,3,4,5,6,7,8,9];
+
+ReactDOM.render(<Chave numbers={numbers} />, document.querySelector('#root'));
+
+</script>
+
+</body>
+</html>

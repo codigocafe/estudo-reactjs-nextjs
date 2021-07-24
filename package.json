@@ -1,9 +1,0 @@
-{
-  "name": "EstudoReactJS",
-  "version": "1.0.0",
-  "description": "Ambiente para estudar ReactJS",
-  "main": "index.js",
-  "repository": "git@github.com:codigocafe/estudo-react.git",
-  "author": "Gustavo Mathias <contato@codigo.cafe>",
-  "license": "MIT"
-}

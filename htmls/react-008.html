@@ -19,12 +19,26 @@
 <script type="text/babel">
 
 class Formulario extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {value : ''};
+  }
+
+  nameChange = (event) => {
+    this.setState({value : event.target.value});
+  }
+
+  nameSubmit = (event) => {
+    event.preventDefault();
+    alert("Um nome foi enviado: " + this.state.value);
+  }
+
   render (){
     return (
-      <form>
+      <form onSubmit={this.nameSubmit} >
         <label>
           Nome:
-          <input type="text" name="nome" />
+          <input type="text" name="nome" value={this.state.value} onChange={this.nameChange} />
         </label>
         <input type="submit" value="Enviar" />
       </form>
